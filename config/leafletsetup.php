@@ -1,0 +1,9 @@
+<?php
+return [
+    'zoom_level'           => 12,
+    'detail_zoom_level'    => 20,
+    'map_center_latitude'  => env('MAP_CENTER_LATITUDE', '-7.777263075202044'),
+    'map_center_longitude' => env('MAP_CENTER_LONGITUDE', '110.37239497902725'),
+    // UNTUK MENGAMBIL LATITUDE DAN LONGITUDE SILAHKAN LAKUKAN SECARA MANUAL ATAU AKSES HALAMAN CREATE KEMUDIAN
+    // GESER KE LOKASI YANG DI INGINKAN -7.777263075202044, 110.37239497902725
+];
