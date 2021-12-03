@@ -8,11 +8,11 @@
             <div class="card">
                 <x:notify-messages />
                 <div class="card-header bg-white border-primary">
-                    Tambah Lokasi
+                    Tambah Users
                 </div>
 
                 <div class="mx-3 mt-3">
-                    <a href="{{ route('places.create') }}" class="btn btn-primary btn-sm">Tambah Lokasi Baru</a>
+                    <a href="{{ route('users.create') }}" class="btn btn-primary btn-sm">Tambah Users Baru</a>
                 </div>
 
                 <div class="card-body">
@@ -20,9 +20,8 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama Lokasi</th>
-                                <th>Latitude</th>
-                                <th>Longitude</th>
+                                <th>Nama Users</th>
+                                <th>Email</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -56,12 +55,11 @@
             $('#tablePlace').DataTable({
                 processing:true,
                 serverSide:true,
-                ajax: '{{ route('place.data') }}',
+                ajax: '{{ route('user.data') }}',
                 columns:[
                     {data: 'DT_RowIndex',orderable:false,searchable:false},
-                    {data: 'place_name'},
-                    {data: 'latitude'},
-                    {data: 'longitude'},
+                    {data: 'name'},
+                    {data: 'email'},
                     {data: 'action'}
                 ]
             })

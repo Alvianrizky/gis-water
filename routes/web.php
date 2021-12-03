@@ -18,9 +18,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', 'PlaceMapController@index')->name('frontpage');
 Route::get('/place/data', 'DataController@places')->name('place.data'); // DATA TABLE CONTROLLER
+Route::get('/users/data', 'DataController@users')->name('user.data'); // DATA TABLE CONTROLLER
 
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('places', 'PlaceController');
+    Route::resource('users', 'UsersController');
 });
 
 // SAMPLE MAP DISPLAY
