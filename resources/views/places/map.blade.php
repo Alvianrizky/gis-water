@@ -96,13 +96,10 @@
                             '<strong>Nama</strong> :<br>'+layer.feature.properties.place_name+
                         '</div>'+
                         '<div class="my-2">'+
-                            '<strong>Deskripsi</strong>:<br>'+layer.feature.properties.description+
-                        '</div>'+
-                        '<div class="my-2">'+
                             '<strong>Alamat Lengkap</strong>:<br>'+layer.feature.properties.address+
                         '</div>'+
                         '<button type="button" onclick="myModal('+layer.feature.properties.id+')" class="btn btn-primary btn-sm">'+
-                            'modal'+
+                            'Detail Lokasi'+
                         '</button>'+
                     '</div>');
         }).addTo(map);
