@@ -124,6 +124,7 @@ class PlaceController extends Controller
      */
     public function destroy(Place $place)
     {
+        \File::delete('file/' . $place->image);
         $place->delete();
         notify()->warning('Place has been deleted');
         return redirect()->route('places.index');
