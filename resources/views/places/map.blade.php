@@ -12,6 +12,42 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="myModal" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Detail Lokasi</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="card card-body">
+                            <strong>Nama Lokasi</strong>
+                            <p class="text-muted" id="nama"></p>
+                            <hr>
+
+                            <strong>Deskripsi</strong>
+                            <p class="text-muted" id="deskripsi"></p>
+                            <hr>
+                            
+                            <strong>Alamat Lengkap</strong>
+                            <p class="text-muted" id="alamat"></p>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div id="image"></div>
+                        {{-- <img class="img-responsive rounded" src="{{ asset('file/1639055483.png') }}"> --}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
 
 @section('styles')
@@ -37,7 +73,7 @@
       </script>
       <script src="https://labs.easyblog.it/maps/leaflet-search/src/leaflet-search.js"></script>
 <script>
-var map = L.map('mapid').setView([{{ config('leafletsetup.map_center_latitude') }},
+    var map = L.map('mapid').setView([{{ config('leafletsetup.map_center_latitude') }},
     {{ config('leafletsetup.map_center_longitude') }}],
     {{ config('leafletsetup.zoom_level') }});
 
@@ -65,6 +101,9 @@ var map = L.map('mapid').setView([{{ config('leafletsetup.map_center_latitude') 
                         '<div class="my-2">'+
                             '<strong>Alamat Lengkap</strong>:<br>'+layer.feature.properties.address+
                         '</div>'+
+                        '<button type="button" onclick="myModal('+layer.feature.properties.id+')" class="btn btn-primary btn-sm">'+
+                            'modal'+
+                        '</button>'+
                     '</div>');
         }).addTo(map);
         console.log(response.data);
@@ -73,8 +112,8 @@ var map = L.map('mapid').setView([{{ config('leafletsetup.map_center_latitude') 
         console.log(error);
     });
 
-//SIMPLE SEARCH LOCATION
-var data = [
+    //SIMPLE SEARCH LOCATION
+    var data = [
         <?php
         foreach ($places as $key => $value) {
         ?>
@@ -107,10 +146,28 @@ var data = [
 
     controlSearch.searchText( e.target.value );
     });
-
-
+    
+    function myModal(id) {
+        
+        $("#myModal").modal('show');
+        $.ajax({
+            url:"{{ route('api.places.data', '') }}"+"/"+id,  
+            method:"POST",  
+            data:{id : id},                              
+            success: function(data) {
+                console.log(data);
+                $("#nama").html(data.place_name);
+                $("#deskripsi").html(data.description);
+                $("#alamat").html(data.address);
+                var image = data.image;
+	            $("#image").html('<img class="img-responsive rounded" src="{{ URL::asset("file") }}/'+image+'">');
+            }
+        });
+    }
 
 </script>
+
+
 @endpush
 
 

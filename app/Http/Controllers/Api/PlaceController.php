@@ -34,4 +34,11 @@ class PlaceController extends Controller
             'features' => $geoJSONdata,
         ]);
     }
+
+    public function getData($id)
+    {
+        $places = Place::find($id);
+
+        return response()->json($places);
+    }
 }

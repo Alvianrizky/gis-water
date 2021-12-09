@@ -26,15 +26,23 @@
                         </div>
                         <p class="mb-1">{{ $place->description }}</p>
                     </div>
-                </div>
-                <div class="mx-3 my-3">
-                    <a href="{{ route('places.index') }}" class="btn btn-secondary">Kembali</a>
+                    <div class="list-group-item list-group-item-action flex-column align-items-start">
+                        <a href="{{ route('places.index') }}" class="btn btn-secondary">Kembali</a>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="col-md-6">
+            @if ($place->image)
+            <div class="card mb-4">
+                <div class="card-header bg-white border-primary">
+                    Gambar Lokasi
+                </div>
+                <img class="card-img" src="{{ asset('file/'.$place->image) }}" alt="Card image">
+            </div>
+            @endif
             <div class="card">
-                <div class="card-header bg-white">
+                <div class="card-header bg-white border-primary">
                     Detail Lokasi
                 </div>
                 <div class="card-body" id="mapid"></div>

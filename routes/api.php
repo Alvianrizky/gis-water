@@ -20,4 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['as' => 'api.', 'namespace' => 'Api'], function () {
     Route::get('places', 'PlaceController@index')->name('places.index');
+    Route::POST('data/{id}', 'PlaceController@getData')->name('places.data');
 });

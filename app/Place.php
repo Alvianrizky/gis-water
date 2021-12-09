@@ -14,5 +14,6 @@ class Place extends Model
         'description',
         'longitude',
         'latitude',
+        'image'
     ];
 }
