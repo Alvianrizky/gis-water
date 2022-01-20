@@ -8,11 +8,11 @@
             <div class="card">
                 <x:notify-messages />
                 <div class="card-header bg-white border-primary">
-                    Tambah Lokasi
+                    Tambah Pelanggan
                 </div>
 
                 <div class="mx-3 mt-3">
-                    <a href="{{ route('places.create') }}" class="btn btn-primary btn-sm">Tambah Lokasi Baru</a>
+                    <a href="{{ route('places.create') }}" class="btn btn-primary btn-sm">Tambah Pelanggan Baru</a>
                 </div>
 
                 <div class="card-body">
@@ -20,7 +20,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama Lokasi</th>
+                                <th>Nama Pelanggan</th>
                                 <th>Latitude</th>
                                 <th>Longitude</th>
                                 <th>Aksi</th>

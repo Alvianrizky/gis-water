@@ -80,7 +80,7 @@
                                 <a href="{{ route('users.index') }}" class="nav-link">Data Users</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('places.index') }}" class="nav-link">Data Lokasi</a>
+                                <a href="{{ route('places.index') }}" class="nav-link">Data Pelanggan</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link btn btn-primary btn-sm text-white ml-5" href="{{ route('logout') }}"

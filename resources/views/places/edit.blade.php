@@ -6,7 +6,7 @@
             <div class="card">
                 <x:notify-messages />
                 <div class="card-header bg-white border-primary">
-                    Update Place
+                    Ubah Data Pelanggan
                 </div>
                 <div class="card-body">
                     <form action="{{ route('places.update',$place) }}" method="post" enctype="multipart/form-data">
@@ -15,7 +15,7 @@
                         <div class="form-group">
                             <div class="form-row mb-2">
                                 <div class="col">
-                                    <label for="">Place Name</label>
+                                    <label for="">Nama Pelanggan</label>
                                     <input type="text" name="place_name" class="form-control @error ('place_name') is-invalid @enderror" value="{{ $place->place_name }}">
                                     @error('place_name')
                                         <span class="invalid-feedback">
@@ -59,7 +59,7 @@
 
                                 <div class="form-row mb-2">
                                     <div class="col">
-                                        <label for="">Address</label>
+                                        <label for="">Alamat</label>
                                         <textarea name="address" placeholder="Address here..." class="form-control @error ('address') is-invalid @enderror" cols="4" rows="8">{{ $place->address }}</textarea>
                                         @error('address')
                                             <span class="invalid-feedback">
@@ -68,7 +68,7 @@
                                         @enderror
                                     </div>
                                     <div class="col">
-                                        <label for="">Description</label>
+                                        <label for="">Deskripsi</label>
                                         <textarea name="description" placeholder="Description here..." class="form-control @error ('description') is-invalid @enderror" cols="4" rows="8">{{ $place->description }}</textarea>
                                         @error('description')
                                             <span class="invalid-feedback">

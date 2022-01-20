@@ -5,12 +5,12 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header bg-white border-primary">
-                    Detail Lokasi
+                    Detail Pelanggan
                 </div>
                 <div class="list-group">
                     <div class="list-group-item list-group-item-action flex-column align-items-start">
                         <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">Nama Lokasi</h5>
+                            <h5 class="mb-1">Nama Pelanggan</h5>
                         </div>
                         <p class="mb-1">{{ $place->place_name }}</p>
                     </div>
@@ -36,14 +36,14 @@
             @if ($place->image)
             <div class="card mb-4">
                 <div class="card-header bg-white border-primary">
-                    Gambar Lokasi
+                    Gambar Data Pelanggan
                 </div>
                 <img class="card-img" src="{{ asset('file/'.$place->image) }}" alt="Card image">
             </div>
             @endif
             <div class="card">
                 <div class="card-header bg-white border-primary">
-                    Detail Lokasi
+                    Detail Data Pelanggan
                 </div>
                 <div class="card-body" id="mapid"></div>
             </div>
